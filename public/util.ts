@@ -14,6 +14,16 @@ type Operation = {
  * This list of operations is used to generate the manual testing UI.
  */
 const operations: Operation[] = [
+  // TODO 10: add the new routes to the testing client
+  // {
+  //   name: "Create Label",
+  // },
+  // {
+  //   name: "Get Labels (all, for logged in user)",
+  // },
+  // {
+  //   name: "Label a Post",
+  // },
   {
     name: "Get Session User (logged in user)",
     endpoint: "/api/session",

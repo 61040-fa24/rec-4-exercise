@@ -75,6 +75,8 @@ class Routes {
     await Posting.assertAuthorIsUser(oid, user);
     return Posting.delete(oid);
   }
+
+  // TODO 9: add routes to (1) create a label, (2) get the user's labels, and (3) label a post
 }
 
 /** The web app. */

@@ -7,3 +7,4 @@ import SessioningConcept from "./concepts/sessioning";
 export const Sessioning = new SessioningConcept();
 export const Authing = new AuthenticatingConcept("users");
 export const Posting = new PostingConcept("posts");
+// TODO 8: add Labeling to our app

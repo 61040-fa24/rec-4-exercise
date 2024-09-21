@@ -1,4 +1,4 @@
-# 6.1040 MongoDB recitation prep
+# 6.1040 MongoDB recitation exercise
 
 ## Getting Started
 
@@ -25,18 +25,6 @@ To understand how to perform different create/read/update/delete (CRUD) operatio
 Read MongoDB's documentation on [fundamental CRUD operations](https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/) to see how filters and queries work.
 
 Read [how to filter](https://docs.google.com/document/d/1M7PaJmkaOFcwKB6O04-CcJMf1inMhzCl/edit) in MongoDB.
-
-## Complete TODOs 1, 2, & 3
-
-TODOs 1 and 2 are in `server/concepts/authenticating.ts` and TODO 3 is in `server/routes.ts`.
-
-You should not need to modify any other code.
-
-After completing TODO 1, *get session user* should work in the manual testing client described below.
-
-After TODO 2: *update username*. (Check your understanding: if you create a post, will you still be the author of that post if you change your username?)
-
-And after TODO 3: *delete post*. (Check your work: create a post as one user, then log out and log in as a different user, and see that deleting the post fails.)
 
 ## Running Locally
 
