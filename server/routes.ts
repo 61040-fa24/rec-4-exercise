@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 
 import { Router, getExpressRouter } from "./framework/router";
 
-import { Authing, Posting, Sessioning } from "./app";
+import { Authing, Labeling, Posting, Sessioning } from "./app";
 import { PostOptions } from "./concepts/posting";
 import { SessionDoc } from "./concepts/sessioning";
 
@@ -77,6 +77,31 @@ class Routes {
   }
 
   // TODO 9: add routes to (1) create a label, (2) get the user's labels, and (3) label a post
+  @Router.post('/labels') 
+  async createLabel(session: SessionDoc, name: string) {
+    const user = Sessioning.getUser(session);
+    return Labeling.create(user,name);
+  }
+
+  @Router.get('/labels')
+  async getLabels(session: SessionDoc) {
+    const user = Sessioning.getUser(session);
+    return Labeling.getByCreator(user);
+  }
+
+  @Router.post("/labels/:labelid/posts/:postid") 
+  async affixLabelToPost(session:SessionDoc, labelid: string, postid: string) {
+    const user = Sessioning.getUser(session);
+    const labelOid = new ObjectId(labelid);
+    // assertCreatorIsUser was not implemented in recitaiton so I'm leaving it commented out in the solutions
+    // in order to not throw any errors, but in reality, we should assert that the current logged in
+    // user is the creator of the label before allowing the user to affix the label to an item. 
+    // await Labeling.assertCreatorIsUser(labelOid, user);   
+    const postOid = new ObjectId(postid);
+    await Posting.assertAuthorIsUser(postOid, user);
+    return Labeling.affix(labelOid, postOid);
+  }
+
 }
 
 /** The web app. */

@@ -15,15 +15,24 @@ type Operation = {
  */
 const operations: Operation[] = [
   // TODO 10: add the new routes to the testing client
-  // {
-  //   name: "Create Label",
-  // },
-  // {
-  //   name: "Get Labels (all, for logged in user)",
-  // },
-  // {
-  //   name: "Label a Post",
-  // },
+  {
+    name: "Create Label",
+    endpoint: "/api/labels",
+    method: "POST",
+    fields: {name: "input"}
+  },
+  {
+    name: "Get Labels (all, for logged in user)",
+    endpoint: '/api/labels',
+    method: "GET",
+    fields: {}
+  },
+  {
+    name: "Label a Post",
+    endpoint: "/api/labels/:labelid/posts/:postid",
+    method: "POST",
+    fields: {labelid: "input", postid: "input"}
+  },
   {
     name: "Get Session User (logged in user)",
     endpoint: "/api/session",
